@@ -28,5 +28,4 @@ It will download the required jars and embedded tomcat server will run.
 3. Click on raw tab and enter json(Find below the JSON under #Tests) data and put Content-Type as application/json.
 4. Access the application by entering the URL http://localhost:8080/store/bill in the URL bar if postman
 
-sssss
-
+<img width="1043" alt="CodeCoverage" src="https://github.com/user-attachments/assets/eae4001f-e2f8-4a40-8cd0-d21358e842ee">
