@@ -6,10 +6,11 @@ import com.retail.model.Bill;
 import com.retail.model.Customer;
 import com.retail.process.BillingProcess;
 import com.retail.service.StoreService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+@Slf4j
 @Service
 public class StoreServiceImpl implements StoreService {
 
@@ -20,8 +21,8 @@ public class StoreServiceImpl implements StoreService {
     private BillingProcess billingProcess;
 
     @Override
-    public Bill generateBill(Customer customer) {
-
+    public Bill generateBill(Customer customer) {s
+        log.info("Calculating bill..");
         return switch (customer.getCustomerType()) {
             case EMPLOYEE -> billingProcess.generateBill(reader.getEmployeeDiscount(), customer.getItemList());
             case AFFILIATED -> billingProcess.generateBill(reader.getAffiliatedDiscount(), customer.getItemList());
@@ -32,3 +33,4 @@ public class StoreServiceImpl implements StoreService {
     }
 
 }
+s

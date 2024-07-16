@@ -8,11 +8,13 @@ import com.retail.model.ItemType;
 import com.retail.process.discount.DiscountStrategy;
 import com.retail.process.factory.DiscountFactory;
 import com.retail.utility.Utility;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Slf4j
 @Component
 public class BillingProcess {
 
@@ -33,6 +35,7 @@ public class BillingProcess {
 		netPayableAmount = getNetPayableAmount(totalAmount);
 		bill.setPayableAmount(Utility.format(netPayableAmount));
 		bill.setTotalItems(itemList.size());
+        log.info("Final Bill::{}", bill.getPayableAmount());
 		return bill;
 	}
 
@@ -47,7 +50,11 @@ public class BillingProcess {
 		return discountStrategy.getAmount(totalAmount, reader.getDiscountedAmount());
 	}
 	
-
+	/**
+	 *
+	 * @param itemList
+	 * This method will calculate the total amount for Groceries and non Groceries items.
+	 */
 	
 	private void calcualteBillAmount(List<Item> itemList) {
 		float nonGroceriesTotalAmount = 0.0f;
