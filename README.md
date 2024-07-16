@@ -9,7 +9,7 @@ According to the given input, percent based discount is calculated on non grocer
 
 # Requirements:
 1. Java8 of higher
-2. Maven
+2. Gradle
 3. Postman -- Tool to post request
 
 # Installation
