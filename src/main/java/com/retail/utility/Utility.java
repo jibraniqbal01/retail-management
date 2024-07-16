@@ -3,8 +3,8 @@ package com.retail.utility;
 import java.text.DecimalFormat;
 
 public interface Utility {
-	static float format(float number) {
+	static double format(Double number) {
 	    DecimalFormat df = new DecimalFormat("0.00");
-        return Float.parseFloat(df.format(number));
+        return Double.parseDouble(df.format(number));
 	}
 }

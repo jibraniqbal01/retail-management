@@ -4,13 +4,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Bill {
 
-    private float groceriesAmount;
-    private float nonGroceriesAmount;
-    private float payableAmount;
+    private Double groceriesAmount;
+    private Double nonGroceriesAmount;
+    private Double payableAmount;
     private int totalItems;
 }

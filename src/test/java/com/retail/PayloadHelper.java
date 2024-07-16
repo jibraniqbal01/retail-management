@@ -1,6 +1,6 @@
 package com.retail;
 
-import com.retail.model.Customer;
+import com.retail.model.ApiRequest;
 import com.retail.model.Item;
 import com.retail.model.ItemType;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PayloadHelper {
 
-    public static Customer getCustomer(){
+    public static ApiRequest getRequest(){
         Item item1 = new Item();
         item1.setAmount(10.99f);
         item1.setItemType(ItemType.GROCERY);
@@ -41,8 +41,11 @@ public class PayloadHelper {
         itemList.add(item3);
         itemList.add(item4);
         itemList.add(item5);
-        Customer customer = new Customer();
-        customer.setItemList(itemList);
-        return customer;
+        ApiRequest apiRequest = new ApiRequest();
+        apiRequest.setItemList(itemList);
+        return apiRequest;
+
+
+
     }
 }

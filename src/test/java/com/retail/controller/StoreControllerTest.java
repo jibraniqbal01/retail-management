@@ -35,7 +35,7 @@ public class StoreControllerTest {
     public void testBill_SUCCESS() throws Exception {
         mockMvc.perform(
                         post(STORE_URL)
-                                .content(TestUtils.mapToJson(PayloadHelper.getCustomer()))
+                                .content(TestUtils.mapToJson(PayloadHelper.getRequest()))
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .accept(MediaType.APPLICATION_JSON)
                 )

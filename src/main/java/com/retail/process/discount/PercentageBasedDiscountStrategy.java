@@ -3,7 +3,7 @@ package com.retail.process.discount;
 public class PercentageBasedDiscountStrategy implements DiscountStrategy {
 	
 	@Override
-	public float getAmount(float totalAmount, float discountPercent) {
+	public double getAmount(double totalAmount, double discountPercent) {
 		  return  totalAmount - ((discountPercent * totalAmount)/100);
 	}
 

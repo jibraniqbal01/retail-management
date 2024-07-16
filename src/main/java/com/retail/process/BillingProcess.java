@@ -13,6 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static com.retail.model.ItemType.GROCERY;
+import static com.retail.model.ItemType.NON_GROCERY;
 
 @Slf4j
 @Component
@@ -26,10 +31,10 @@ public class BillingProcess {
 	
 	public Bill generateBill(float discountPercent, List<Item> itemList) {
 		bill = new Bill();
-		float nonGroceriesAmountAfterDiscount;
-		float totalAmount;
-		float netPayableAmount;
-		calcualteBillAmount(itemList);
+		double nonGroceriesAmountAfterDiscount;
+		double totalAmount;
+		double netPayableAmount;
+		calculateBill(itemList);
 		nonGroceriesAmountAfterDiscount = getNonGroceriesAmtAfterDiscount(discountPercent);
 		totalAmount = nonGroceriesAmountAfterDiscount + bill.getGroceriesAmount();
 		netPayableAmount = getNetPayableAmount(totalAmount);
@@ -39,13 +44,13 @@ public class BillingProcess {
 		return bill;
 	}
 
-	private float getNonGroceriesAmtAfterDiscount(float discountPercent) {
+	private double getNonGroceriesAmtAfterDiscount(double discountPercent) {
 		DiscountStrategy discountStrategy = DiscountFactory.getPercentageBasedInstance();
 		return discountStrategy.getAmount(bill.getNonGroceriesAmount(), discountPercent);
 	}
 
 	
-	private float getNetPayableAmount(float totalAmount) {
+	private double getNetPayableAmount(double totalAmount) {
 		DiscountStrategy discountStrategy = DiscountFactory.getAmountBasedInstance(reader.getAmountCutOff());
 		return discountStrategy.getAmount(totalAmount, reader.getDiscountedAmount());
 	}
@@ -56,18 +61,14 @@ public class BillingProcess {
 	 * This method will calculate the total amount for Groceries and non Groceries items.
 	 */
 	
-	private void calcualteBillAmount(List<Item> itemList) {
-		float nonGroceriesTotalAmount = 0.0f;
-		float groceriesTotalAmount = 0.0f;
-		for(Item item: itemList) {
-			if(item.getItemType() == ItemType.NON_GROCERY) {
-				nonGroceriesTotalAmount += item.getAmount();	
-			}else {
-				groceriesTotalAmount += item.getAmount();
-			}
-		}
-		bill.setGroceriesAmount(Utility.format(groceriesTotalAmount));
-		bill.setNonGroceriesAmount(Utility.format(nonGroceriesTotalAmount));
+	private void calculateBill(List<Item> itemList) {
+
+		Map<ItemType, Double> totalAmounts = itemList.stream()
+				.collect(Collectors.groupingBy(Item::getItemType,
+						Collectors.summingDouble(Item::getAmount)));
+
+		bill.setGroceriesAmount(Utility.format(totalAmounts.get(GROCERY)));
+		bill.setNonGroceriesAmount(Utility.format(totalAmounts.get(NON_GROCERY)));
 	}
 	
 }
