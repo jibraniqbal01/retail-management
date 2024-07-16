@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: retail-management
+
+
+discount:
+  amount-cut-off: 100
+  discounted-amount: 5
+  employee-discount: 30
+  affiliated-discount: 10
+  valued-customer-discount: 5

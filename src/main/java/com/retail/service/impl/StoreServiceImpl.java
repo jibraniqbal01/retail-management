@@ -21,7 +21,7 @@ public class StoreServiceImpl implements StoreService {
     private BillingProcess billingProcess;
 
     @Override
-    public Bill generateBill(Customer customer) {s
+    public Bill generateBill(Customer customer) {
         log.info("Calculating bill..");
         return switch (customer.getCustomerType()) {
             case EMPLOYEE -> billingProcess.generateBill(reader.getEmployeeDiscount(), customer.getItemList());
@@ -33,4 +33,3 @@ public class StoreServiceImpl implements StoreService {
     }
 
 }
-s

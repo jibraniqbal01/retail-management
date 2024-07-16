@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.retail.service.StoreServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-07-16T14:12:41" hostname="mx" time="0.084">
+  <properties/>
+  <testcase name="generateBillEmployee_test()" classname="com.retail.service.StoreServiceTest" time="0.043"/>
+  <testcase name="generateBillAffliated_test()" classname="com.retail.service.StoreServiceTest" time="0.01"/>
+  <testcase name="generateBillNormal_test()" classname="com.retail.service.StoreServiceTest" time="0.009"/>
+  <testcase name="generateBillValuedCustomer_test()" classname="com.retail.service.StoreServiceTest" time="0.009"/>
+  <system-out><![CDATA[2024-07-16T10:12:40.117-04:00  INFO 7316 --- [retail-management] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.retail.service.StoreServiceTest]: StoreServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-07-16T10:12:40.135-04:00  INFO 7316 --- [retail-management] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.retail.RetailManagementApplication for test class com.retail.service.StoreServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.1)
+
+2024-07-16T10:12:40.229-04:00  INFO 7316 --- [retail-management] [    Test worker] com.retail.service.StoreServiceTest      : Starting StoreServiceTest using Java 17.0.11 with PID 7316 (started by jibran in /home/jibran/Nagarro/retail-management)
+2024-07-16T10:12:40.230-04:00  INFO 7316 --- [retail-management] [    Test worker] com.retail.service.StoreServiceTest      : The following 1 profile is active: "test"
+2024-07-16T10:12:41.344-04:00  INFO 7316 --- [retail-management] [    Test worker] com.retail.service.StoreServiceTest      : Started StoreServiceTest in 1.192 seconds (process running for 9.404)
+2024-07-16T10:12:41.383-04:00  INFO 7316 --- [retail-management] [    Test worker] c.retail.service.impl.StoreServiceImpl   : Calculating bill..
+2024-07-16T10:12:41.411-04:00  INFO 7316 --- [retail-management] [    Test worker] c.retail.service.impl.StoreServiceImpl   : Calculating bill..
+2024-07-16T10:12:41.425-04:00  INFO 7316 --- [retail-management] [    Test worker] c.retail.service.impl.StoreServiceImpl   : Calculating bill..
+2024-07-16T10:12:41.437-04:00  INFO 7316 --- [retail-management] [    Test worker] c.retail.service.impl.StoreServiceImpl   : Calculating bill..
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
